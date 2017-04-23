@@ -1,0 +1,38 @@
+<html>
+
+<head>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>Hello Voice</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+  <script src='responsivevoice.js'></script>
+  <script src="script.js"></script>
+  <script src="app.js"></script>
+</head>
+
+<body ng-app="app" ng-controller="voiceController as vm" ng-class="{'bg-success':vm.answer.toLowerCase() === vm.value.toLowerCase()}">
+  <div class="container">
+    <h1>&nbsp;<span ng-show='vm.revealead || vm.answer.toLowerCase() === vm.value.toLowerCase()'>{{vm.answer}}</span> </h1>
+    <div class="col-md-3">
+      <div class="form-group">
+        <input placeholder="Type the answer" autofocus class="form-control" my-enter="vm.nextWord()" type="text" name="answer" ng-model=vm.value>
+      </div>
+      <button class="btn btn-primary" ng-click="vm.nextWord()" type="button">Play next</button>
+      <button class="btn btn-default" ng-click="vm.replay()" type="button">Replay</button>
+      <button class="btn btn-default" ng-click="vm.reveal()" type="button">Reveal</button>
+
+      <br>  <br>
+      <label for="">Min length</label>
+      <input type="number" min='3' max='15' class="form-control" ng-model='vm.minLength'>
+
+      <label for="">Max length</label>
+      <input type="number" min='3' max='15' class="form-control" ng-model='vm.maxLength'>
+    </div>
+
+  </div>
+
+  <!--<div><a href="https://responsivevoice.org">ResponsiveVoice-NonCommercial</a> licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img title="ResponsiveVoice Text To Speech" src="https://responsivevoice.org/wp-content/uploads/2014/08/95x15.png" alt="95x15" width="95" height="15" /></div>-->
+</body>
+
+</html>
