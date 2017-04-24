@@ -14,13 +14,15 @@
 <body ng-app="app" ng-controller="voiceController as vm" ng-class="{'bg-success':vm.answer.toLowerCase() === vm.value.toLowerCase()}">
   <div class="container">
     <h1>&nbsp;<span ng-show='vm.revealead || vm.answer.toLowerCase() === vm.value.toLowerCase()'>{{vm.answer}}</span> </h1>
-    <div class="col-md-3">
+    <h4>&nbsp;{{vm.definition}}</h4>
+    <div class="col-md-4">
       <div class="form-group">
         <input placeholder="Type the answer" autofocus class="form-control" my-enter="vm.nextWord()" type="text" name="answer" ng-model=vm.value>
       </div>
       <button class="btn btn-primary" ng-click="vm.nextWord()" type="button">Play next</button>
       <button class="btn btn-default" ng-click="vm.replay()" type="button">Replay</button>
       <button class="btn btn-default" ng-click="vm.reveal()" type="button">Reveal</button>
+      <button class="btn btn-default" ng-click="vm.define(vm.answer)" type="button">Definie</button>
 
       <br>  <br>
       <label for="">Min length</label>
